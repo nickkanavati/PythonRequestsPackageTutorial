@@ -1,5 +1,26 @@
 import requests
 from datetime import datetime # Used to convert epoch time in seconds to a human readable iso formatted string.
+
+#################
+#### HTTPBIN ####
+'''
+HTTPBIN is a service that allows you to test HTTP methods. It will be used to demonstrate simple HTTP GET/POST requests.
+'''
+
+# SIMPLE HTTP GET EXAMPLE
+r = requests.get('https://httpbin.org/get')
+r.headers
+r.json()
+r.text
+
+
+# SIMPLE HTTP POST EXAMPLE (The HTTPBIN backend is programed to return the payload from an HTTP POST request)
+pload = {'message': 'hello we are testing http post'}
+r = requests.post('https://httpbin.org/post',data = pload)
+r_dictionary= r.json()
+print(r_dictionary['form'])
+r.json()
+
 ###########################
 #### COINSTATS.APP API ####
 
